@@ -1,20 +1,12 @@
 import csv
 import json
-from os import getenv
 from pathlib import Path
-from dotenv import load_dotenv
-from openai import OpenAI
+from common.ai_client import ai_client as client
 from common.hub_client import HubClient
 from job_description_schema import JOB_DESCRIPTION_PROMPT, JOB_DESCRIPTION_SCHEMA
 
-load_dotenv()
-
 DATA_FILE = Path(__file__).parent / "people.csv"
 CURRENT_YEAR = 2026
-
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1", api_key=getenv("OPENROUTER_API_KEY")
-)
 
 
 def load_people():

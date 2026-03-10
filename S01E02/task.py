@@ -1,18 +1,10 @@
 import json
 import os
 import sys
-from dotenv import load_dotenv
-from openai import OpenAI
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+from common.ai_client import ai_client
 from tools import TOOLS, execute_tool_call
-
-load_dotenv()
-
-ai_client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-)
 
 SYSTEM_PROMPT = """Znajdź agenta tajniaka — osobę, która była najbliżej dowolnej elektrowni.
 

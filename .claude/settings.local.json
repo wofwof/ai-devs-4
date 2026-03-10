@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "WebSearch",
+      "Bash(cd \"C:\\\\Users\\\\kpieta\\\\Documents\\\\Code\\\\ai-devs-4\" && source .venv/Scripts/activate && pip install langfuse)"
+    ]
+  }
+}
