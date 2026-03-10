@@ -44,6 +44,8 @@ candidates_data = "\n".join(
     f"[{i}] {c['name']} {c['surname']}: {c['job']}" for i, c in enumerate(candidates)
 )
 
+print(candidates_data)
+
 completion = client.chat.completions.create(
     model="openai/gpt-5.2",
     response_format=JOB_DESCRIPTION_SCHEMA,
@@ -52,6 +54,7 @@ completion = client.chat.completions.create(
         {"role": "user", "content": candidates_data},
     ],
 )
+print(completion)
 
 tagged = json.loads(completion.choices[0].message.content)["people"]
 
@@ -60,18 +63,21 @@ transport_candidates = []
 for entry in tagged:
     if "transport" in entry["tags"]:
         c = candidates[entry["index"]]
-        transport_candidates.append({
-            "name": c["name"],
-            "surname": c["surname"],
-            "gender": c["gender"],
-            "born": int(c["birthDate"].split("-")[0]),
-            "city": c["birthPlace"],
-            "tags": entry["tags"],
-        })
+        transport_candidates.append(
+            {
+                "name": c["name"],
+                "surname": c["surname"],
+                "gender": c["gender"],
+                "born": int(c["birthDate"].split("-")[0]),
+                "city": c["birthPlace"],
+                "tags": entry["tags"],
+            }
+        )
 
-print(f"Candidates with 'transport' tag ({len(transport_candidates)}):")
-for c in transport_candidates:
-    print(f"  {c['name']} {c['surname']}, born {c['born']}, tags: {c['tags']}")
+with open(Path(__file__).parent / "transport_candidates.txt", "w", encoding="utf-8") as f:
+    f.write(f"Candidates with 'transport' tag ({len(transport_candidates)}):\n")
+    for c in transport_candidates:
+        f.write(f"  {c['name']} {c['surname']}, born {c['born']}, tags: {c['tags']}\n")
 
 hub = HubClient()
 result = hub.verify(task="people", answer=transport_candidates)

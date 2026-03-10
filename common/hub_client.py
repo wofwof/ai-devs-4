@@ -15,5 +15,6 @@ class HubClient:
             "answer": answer,
         }
         response = requests.post(self.URL, json=payload)
-        response.raise_for_status()
-        return response.json()
+        result = response.json()
+        result["status_code"] = response.status_code
+        return result

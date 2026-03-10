@@ -1,0 +1,6 @@
+Candidates with 'transport' tag (5):
+  Cezary Żurek, born 1987, tags: ['transport']
+  Jacek Nowak, born 1991, tags: ['transport']
+  Oskar Sieradzki, born 1993, tags: ['transport']
+  Wojciech Bielik, born 1986, tags: ['transport']
+  Wacław Jasiński, born 1986, tags: ['transport']

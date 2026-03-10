@@ -24,7 +24,21 @@ JOB_DESCRIPTION_SCHEMA = {
                         "type": "object",
                         "properties": {
                             "index": {"type": "integer"},
-                            "tags": {"type": "array", "items": {"type": "string"}},
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "IT",
+                                        "transport",
+                                        "edukacja",
+                                        "medycyna",
+                                        "praca z ludźmi",
+                                        "praca z pojazdami",
+                                        "praca fizyczna",
+                                    ],
+                                },
+                            },
                         },
                         "required": ["index", "tags"],
                         "additionalProperties": False,
