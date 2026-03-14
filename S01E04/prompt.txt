@@ -1,0 +1,10 @@
+Zapoznaj sie ze wszytkimi dokumentami tekstowymi oraz graficznymi 
+na stronie interengowej https://hub.ag3nts.org/dane/doc/
+
+Zapoznaj sie z lokalnym plikiem dane.txt
+
+Wypełnij deklaracje przesyłki o podanych parametrach w pliku dane.txt zgodnie z wymaganiami systemowymi 
+znalezionymi w dokumentacji. Wypelnij kazde pole zgodnie z poleceniami i wytycznymi dokumentacji. 
+Nie zostawiaj miejsca na niejasnoci.
+
+Wyslij wzorzec zachowujac dokladne formatowanie send solution jako  {"declaration": "tutaj-wstaw-caly-tekst-deklaracji bez formatowania nawet z trzema ```"} zadanie sendit
